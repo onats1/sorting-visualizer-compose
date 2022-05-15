@@ -3,10 +3,9 @@ package components
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -96,24 +95,7 @@ fun SideBar(
         ) {
             Text("Merge")
         }
-
-        Button(
-            modifier = Modifier
-                .width(120.dp)
-                .height(60.dp)
-                .padding(top = 5.dp),
-            onClick = {
-                selectedAlgorithm = SortingAlgorithms.QUICK_SORT
-                reset()
-            },
-            colors = ButtonDefaults.buttonColors(
-                backgroundColor = if (selectedAlgorithm == SortingAlgorithms.QUICK_SORT) Color.Yellow else Color.Transparent
-            )
-        ) {
-            Text("Quick")
-        }
         Spacer(modifier = Modifier.height(40.dp))
-
         Button(
             modifier = Modifier.width(120.dp).height(60.dp),
             onClick = { startSort(selectedAlgorithm) },
@@ -135,5 +117,5 @@ fun PreviewSideBar() {
 }
 
 enum class SortingAlgorithms {
-    BUBBLE_SORT, SELECTION_SORT, INSERTION_SORT, MERGE_SORT, QUICK_SORT
+    BUBBLE_SORT, SELECTION_SORT, INSERTION_SORT, MERGE_SORT
 }

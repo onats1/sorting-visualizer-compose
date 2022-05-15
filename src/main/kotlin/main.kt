@@ -42,9 +42,6 @@ fun main() = application {
                     },
                     startSort = { selectedAlgo ->
                         when (selectedAlgo) {
-                            SortingAlgorithms.QUICK_SORT -> {
-
-                            }
                             SortingAlgorithms.SELECTION_SORT -> {
                                 coroutineScope.launch {
                                     selectionSort(list.value) {
