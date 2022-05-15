@@ -2,7 +2,9 @@ package algorithms
 
 import kotlinx.coroutines.delay
 
-suspend fun mergeSort(list: List<Int>, updateUi: (MutableList<Int>) -> Unit) {
+typealias UpdateUI = (MutableList<Int>) -> Unit
+
+suspend fun mergeSort(list: List<Int>, updateUi: UpdateUI) {
     val array = list.toMutableList()
     if (array.size <= 1) return
     val auxArray = array.toMutableList()
@@ -10,7 +12,7 @@ suspend fun mergeSort(list: List<Int>, updateUi: (MutableList<Int>) -> Unit) {
     updateUi(array)
 }
 
-suspend fun mergeSortHelper(mainArray: MutableList<Int>, startIdx: Int, endIdx: Int, auxArray: MutableList<Int>, updateUi: (MutableList<Int>) -> Unit) {
+suspend fun mergeSortHelper(mainArray: MutableList<Int>, startIdx: Int, endIdx: Int, auxArray: MutableList<Int>, updateUi: UpdateUI) {
     if (startIdx == endIdx) return
     val middleIdx = (startIdx + endIdx) / 2
     mergeSortHelper(auxArray, startIdx, middleIdx, mainArray, updateUi)
@@ -20,7 +22,7 @@ suspend fun mergeSortHelper(mainArray: MutableList<Int>, startIdx: Int, endIdx: 
     updateUi(auxArray)
 }
 
-suspend fun merge(mainArray: MutableList<Int>, startIdx: Int, middleIdx: Int, endIdx: Int, auxArray: List<Int>, updateUi: (MutableList<Int>) -> Unit) {
+suspend fun merge(mainArray: MutableList<Int>, startIdx: Int, middleIdx: Int, endIdx: Int, auxArray: List<Int>, updateUi: UpdateUI) {
     var k = startIdx
     var i = startIdx
     var j = middleIdx + 1
