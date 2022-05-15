@@ -6,5 +6,5 @@ pluginManagement {
     }
     
 }
-rootProject.name = "Rocky"
+rootProject.name = "SortingVisualizer"
 

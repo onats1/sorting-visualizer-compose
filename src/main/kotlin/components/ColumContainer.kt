@@ -11,10 +11,10 @@ fun ColumnContainer(
     maxWidth: Int,
     array: List<Int>
 ) {
-    val spacing = array.size - 1
+    val numberOfSpacings = array.size - 1
     val spacingWidth = 3
-    val spacings = spacing * spacingWidth
-    val columnWidth = (maxWidth - spacings) / array.size
+    val totalSpacingWidth = numberOfSpacings * spacingWidth
+    val columnWidth = (maxWidth - totalSpacingWidth) / array.size
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.Start,
@@ -29,8 +29,5 @@ fun ColumnContainer(
 
 @[Composable Preview]
 fun PreviewColumnContainer() {
-    ColumnContainer(
-        maxWidth = 800,
-        array = generateRandomList()
-    )
+
 }
